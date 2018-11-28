@@ -19,10 +19,9 @@ router
     });
   })
   .post(function(req, res) {
-    console.log(req.body);
     var item = new Item();
     item.title = req.body.title;
-    item.date = req.body.date;
+    item.date = new Date().getTime();
     item.fullName = req.body.fullName;
     item.imageUrl = req.body.imageUrl;
 

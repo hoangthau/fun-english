@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set our api routes
-app.use("*", api);
+app.use(api);
 
 /**
  * Get port from environment and store in Express.
