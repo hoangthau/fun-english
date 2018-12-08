@@ -7,7 +7,8 @@ const WordSchema = new Schema({
   pronunciation: String,
   similarSound: String,
   username: String,
-  imageUrl: String 
+  imageUrl: String,
+  date: Number
 });
 
 module.exports = mongoose.model("Word", WordSchema);

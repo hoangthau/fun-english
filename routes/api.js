@@ -34,13 +34,39 @@ router
     });
   });
 
-router.route("/item/:item_id").get(function(req, res) {
-  Item.findById(req.params.item_id, function(err, item) {
-    if (err) res.send(err);
+router
+  .route("/item/:item_id")
+  .get(function(req, res) {
+    Item.findById(req.params.item_id, function(err, item) {
+      if (err) res.send(err);
 
-    res.json(item);
+      res.json(item);
+    });
+  })
+  .put(function(req, res) {
+    Item.findById(req.params.item_id, function(err, item) {
+      if (err) res.send(err);
+      item.claps = req.body.claps;
+
+      item.save(function(err) {
+        if (err) res.send(err);
+
+        res.json({ message: "Item updated claps!" });
+      });
+    });
+  })
+  .delete(function(req, res) {
+    Item.remove(
+      {
+        _id: req.params.item_id
+      },
+      function(err) {
+        if (err) res.send(err);
+
+        res.json({ message: "Successfully deletected" });
+      }
+    );
   });
-});
 
 //for words
 router
@@ -65,6 +91,7 @@ router
     word.meanings = req.body.meanings;
     word.similarSound = req.body.similarSound;
     word.imageUrl = req.body.imageUrl;
+    word.date = new Date().getTime();
 
     word.save(function(err) {
       if (err) res.send(err);
@@ -89,6 +116,7 @@ router
       word.meanings = req.body.meanings;
       word.similarSound = req.body.similarSound;
       word.imageUrl = req.body.imageUrl;
+      word.date = new Date().getTime();
 
       word.save(function(err) {
         if (err) res.send(err);
