@@ -89,7 +89,7 @@ router
     word.pronunciation = req.body.pronunciation;
     word.username = req.body.username;
     word.meanings = req.body.meanings;
-    word.similarSound = req.body.similarSound;
+    word.example = req.body.example;
     word.imageUrl = req.body.imageUrl;
     word.date = new Date().getTime();
 
@@ -114,7 +114,7 @@ router
       word.vocabulary = req.body.vocabulary;
       word.pronunciation = req.body.pronunciation;
       word.meanings = req.body.meanings;
-      word.similarSound = req.body.similarSound;
+      word.example = req.body.example;
       word.imageUrl = req.body.imageUrl;
       word.date = new Date().getTime();
 

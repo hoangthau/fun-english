@@ -5,7 +5,7 @@ const WordSchema = new Schema({
   vocabulary: String,
   meanings: String,
   pronunciation: String,
-  similarSound: String,
+  example: String,
   username: String,
   imageUrl: String,
   date: Number
